@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Brackeys- 2020 . 2- Game- Jam"
-config/icon="res://icon.png"
 
 [rendering]
 
