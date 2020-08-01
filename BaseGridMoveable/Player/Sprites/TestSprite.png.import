@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TestSprite.png-ccec5a4d92200fb584dd9488a2e7ea5d.stex"
+path="res://.import/TestSprite.png-07b481f3be4a00aa0f81f7aee1c7c238.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BaseGridMoveable/Sprites/TestSprite.png"
-dest_files=[ "res://.import/TestSprite.png-ccec5a4d92200fb584dd9488a2e7ea5d.stex" ]
+source_file="res://BaseGridMoveable/Player/Sprites/TestSprite.png"
+dest_files=[ "res://.import/TestSprite.png-07b481f3be4a00aa0f81f7aee1c7c238.stex" ]
 
 [params]
 
