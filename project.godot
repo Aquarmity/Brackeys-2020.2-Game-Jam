@@ -17,6 +17,11 @@ _global_script_class_icons={
 
 config/name="Brackeys- 2020 . 2- Game- Jam"
 
+[display]
+
+window/size/width=320
+window/size/height=180
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
