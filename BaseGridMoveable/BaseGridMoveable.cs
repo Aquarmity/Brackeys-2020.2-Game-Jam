@@ -12,7 +12,8 @@ public class BaseGridMoveable : KinematicBody2D
 	
 	public override void _Ready()
 	{
-
+		gridPosition = new Vector2(Position.x / gridSize,Position.y / gridSize);
+		MoveGridRelative(2,2);
 	}
 	
 	public override void _Process(float delta)
