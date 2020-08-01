@@ -1,0 +1,26 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="BaseGridMoveable/BaseGridMoveable.cs">
+    <Files>
+      <File FileName="BaseGridMoveable/BaseGridMoveable.cs" Line="10" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Brackeys- 2020 . 2- Game- Jam" expanded="True">
+            <Node name="Brackeys- 2020 . 2- Game- Jam" expanded="True">
+              <Node name="References" selected="True" />
+              <Node name="BaseGridMoveable" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
