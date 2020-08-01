@@ -8,11 +8,11 @@ public class BaseGridMoveable : KinematicBody2D
 	public Vector2 gridPosition = new Vector2(0, 0);
 	
 	private Vector2 newPosition = new Vector2(0, 0);
-	
+	public float maxSpeed = 16.0f;
 	
 	public override void _Ready()
 	{
-		MoveGrid(0,0);
+
 	}
 	
 	public override void _Process(float delta)
@@ -21,7 +21,6 @@ public class BaseGridMoveable : KinematicBody2D
 		var yLerp = Mathf.Lerp(Position.y, newPosition.y, 0.1f);
 		Position = new Vector2(xLerp, yLerp);
 		
-		MoveGridRelative(1,0);
 	}
 	
 	public bool MoveGrid(int x, int y)
@@ -34,6 +33,7 @@ public class BaseGridMoveable : KinematicBody2D
 		if (result.Count == 0)
 		{
 			newPosition = new Vector2(x * 16, y * 16);
+			gridPosition = new Vector2(x, y);
 			return true;
 		}
 		return false;
@@ -41,7 +41,7 @@ public class BaseGridMoveable : KinematicBody2D
 	}
 	public bool MoveGridRelative(int x, int y) 
 	{
-		return MoveGrid((int)gridPosition.x + x, (int)gridPosition.y + y);
+		return MoveGrid(x + (int)gridPosition.x,y + (int)gridPosition.y);
 	}
 
 }
