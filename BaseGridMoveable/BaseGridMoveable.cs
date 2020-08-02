@@ -27,12 +27,7 @@ public class BaseGridMoveable : KinematicBody2D
 	// returns false if there is a collision
 	public bool MoveGrid(int x, int y)
 	{
-		var spaceRid = GetWorld2d().Space;
-		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
-		
-		// check the spot to move to
-		var result = spaceState.IntersectRay(new Vector2(x * gridSize + 1,y * gridSize + 1),new Vector2(x * 16 + 2,y * 16 + 2));
-		
+		var result = MoveGridBase(x, y);
 		if (result.Count == 0) // if there is no one there
 		{
 			newPosition = new Vector2(x * gridSize, y * gridSize);
@@ -42,11 +37,27 @@ public class BaseGridMoveable : KinematicBody2D
 		return false;
 		
 	}
-	
 	// returns false if there is a collision
 	public bool MoveGridRelative(int x, int y) 
 	{
 		return MoveGrid(x + (int)gridPosition.x,y + (int)gridPosition.y);
 	}
-
+	public Godot.Collections.Dictionary MoveGridBase(int x, int y) 
+	{
+		var spaceRid = GetWorld2d().Space;
+		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
+		
+		// check the spot to move to
+		var result = spaceState.IntersectRay(new Vector2(x * gridSize + 1,y * gridSize + 1),new Vector2(x * 16 + 2,y * 16 + 2));
+		if (result.Count == 0) // if there is no one there
+		{
+			newPosition = new Vector2(x * gridSize, y * gridSize);
+			gridPosition = new Vector2(x, y);
+		}
+		return result;
+	}
+	public Godot.Collections.Dictionary MoveGridRelativeBase(int x, int y)
+	{
+		return MoveGridBase(x + (int)gridPosition.x, y + (int)gridPosition.y);
+	}
 }

@@ -3,7 +3,9 @@ using System;
 
 public class Player : BaseGridMoveable
 {
-
+	[Signal]
+	public delegate void chestTest(Vector2 pos);
+	
 	public override void _Ready()
 	{
 		base._Ready();
@@ -14,21 +16,43 @@ public class Player : BaseGridMoveable
 	}
 	public override void _Input(InputEvent inputEvent)
 	{
+		int x = 0;
+		int y = 0;
 		if (inputEvent.IsActionPressed("mv_up"))
 		{
-			MoveGridRelative(0,-1);
+			y = -1;
 		}
 		if (inputEvent.IsActionPressed("mv_down"))
 		{
-			MoveGridRelative(0,1);
+			y = 1;
 		}
 		if (inputEvent.IsActionPressed("mv_left"))
 		{
-			MoveGridRelative(-1,0);
+			x = -1;
 		}
 		if (inputEvent.IsActionPressed("mv_right"))
 		{
-			MoveGridRelative(1,0);
+			x = 1;
 		}
+		// only move one axis at a time (no diagonal movement)
+		if (x != 0)
+		{
+			y = 0;
+		}
+		
+		PlayerMoveGrid(MoveGridRelativeBase(x,y));
+		
+		
+	}
+	
+	private bool PlayerMoveGrid(Godot.Collections.Dictionary result)
+	{
+		if (result.Count != 0)  // if there is something there
+		{
+			EmitSignal(nameof(chestTest), result["position"]); // tell the chests to check if it was them that we hit
+			return false;
+		}
+		
+		return true;
 	}
 }

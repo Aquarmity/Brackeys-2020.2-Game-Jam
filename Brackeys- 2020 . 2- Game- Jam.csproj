@@ -60,6 +60,7 @@
     <Compile Include="BaseGridMoveable\BaseGridMoveable.cs" />
     <Compile Include="BaseGridMoveable\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreasureChest\TreasureChest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,7 @@ run/main_scene="res://test_room_scene.tscn"
 [display]
 
 window/size/width=320
-window/size/height=180
+window/size/height=192
 window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
@@ -75,6 +75,10 @@ mv_right={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[mono]
+
+debugger_agent/wait_for_debugger=true
 
 [rendering]
 
