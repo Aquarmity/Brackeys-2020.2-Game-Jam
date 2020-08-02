@@ -13,7 +13,7 @@ public class BaseGridMoveable : KinematicBody2D
 	public override void _Ready()
 	{
 		gridPosition = Position / 16;
-		newPosition = gridPosition;
+		newPosition = Position;
 	}
 	
 	public override void _Process(float delta)
