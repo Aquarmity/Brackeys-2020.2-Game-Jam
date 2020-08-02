@@ -265,7 +265,7 @@ position = Vector2( 144, -64 )
 position = Vector2( 208, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 16 )
+position = Vector2( 224, 88 )
 
 [node name="TreasureChest" parent="." instance=ExtResource( 7 )]
 position = Vector2( 64, 80 )

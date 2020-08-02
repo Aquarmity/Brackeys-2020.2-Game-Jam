@@ -31,16 +31,15 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.5
 playing = true
 centered = false
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 8, 8 )
-scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 4 )
 color = Color( 0, 0, 0, 1 )
 mode = 2
+range_z_max = 100
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
