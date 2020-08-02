@@ -24,22 +24,26 @@ public class BaseGridMoveable : KinematicBody2D
 		
 	}
 	
+	// returns false if there is a collision
 	public bool MoveGrid(int x, int y)
 	{
 		var spaceRid = GetWorld2d().Space;
 		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
 		
-		var result = spaceState.IntersectRay(new Vector2(x * 16 + 1,y * 16 + 1),new Vector2(x * 16 + 2,y * 16 + 2));
+		// check the spot to move to
+		var result = spaceState.IntersectRay(new Vector2(x * gridSize + 1,y * gridSize + 1),new Vector2(x * 16 + 2,y * 16 + 2));
 		
-		if (result.Count == 0)
+		if (result.Count == 0) // if there is no one there
 		{
-			newPosition = new Vector2(x * 16, y * 16);
+			newPosition = new Vector2(x * gridSize, y * gridSize);
 			gridPosition = new Vector2(x, y);
 			return true;
 		}
 		return false;
 		
 	}
+	
+	// returns false if there is a collision
 	public bool MoveGridRelative(int x, int y) 
 	{
 		return MoveGrid(x + (int)gridPosition.x,y + (int)gridPosition.y);

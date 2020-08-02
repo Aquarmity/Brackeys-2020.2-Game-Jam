@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BaseGridMoveable/Player/Player.cs" type="Script" id=1]
+[ext_resource path="res://BaseGridMoveable/Player/Sprites/Player2.png" type="Texture" id=2]
+[ext_resource path="res://BaseGridMoveable/Player/Sprites/Player1.png" type="Texture" id=3]
+[ext_resource path="res://BaseGridMoveable/Player/Sprites/LightTexture3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/TestSprite.png-07b481f3be4a00aa0f81f7aee1c7c238.stex"
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -15,10 +23,22 @@ script = ExtResource( 1 )
 position = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 2 )
-centered = false
-
 [node name="InputTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+frame = 1
+speed_scale = 0.5
+playing = true
+centered = false
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 8, 8 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+color = Color( 0, 0, 0, 1 )
+mode = 2
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
