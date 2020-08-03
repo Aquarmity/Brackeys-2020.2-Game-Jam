@@ -56,6 +56,68 @@ public class Monster : BaseGridMoveable
             SubtractHeart();
         }
     }
+
+    public Godot.Collections.Dictionary Attack(int x, int y)
+    {
+        var spaceRid = GetWorld2d().Space;
+		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
+		
+		// check the spot to move to
+		var result = spaceState.IntersectRay(new Vector2(x * gridSize + 1,y * gridSize + 1),new Vector2(x * 16 + 2,y * 16 + 2));
+
+        return result;
+    }
+
+    public Godot.Collections.Dictionary AttackRelative(int x, int y)
+    {
+        return Attack(x + (int)gridPosition.x, y + (int)gridPosition.y);
+    }
+
+    public Godot.Collections.Dictionary AttackColumn(int x, int y, bool up)
+    {
+        var spaceRid = GetWorld2d().Space;
+		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
+		var rayStart = new Vector2(16 * x + 8, 16 * y + 8);
+		// check the spot to move to
+        var rayEnd = new Vector2(0,0);
+        if (up)
+        {
+            rayEnd = new Vector2(16 * x + 8, 8);
+        } 
+        else
+        {
+            rayEnd = new Vector2(16 * x + 8, 16 * 20 + 8);
+        }
+		var result = spaceState.IntersectRay(rayStart, rayEnd );
+        return result;
+    }
+    public Godot.Collections.Dictionary AttackColumnRelative(int x, int y, bool up)
+    {
+        return AttackColumn(x + (int)gridPosition.x, y + (int)gridPosition.y, up);
+    }
+    public Godot.Collections.Dictionary AttackRow(int x, int y, bool left)
+    {
+        var spaceRid = GetWorld2d().Space;
+		var spaceState = Physics2DServer.SpaceGetDirectState(spaceRid);
+		var rayStart = new Vector2(16 * x + 8, 16 * y + 8);
+		// check the spot to move to
+        var rayEnd = new Vector2(0,0);
+        if (left)
+        {
+            rayEnd = new Vector2(8, 16 * x + 8);
+        } 
+        else
+        {
+            rayEnd = new Vector2(16 * 20 + 8, 16 * x + 8);
+        }
+		var result = spaceState.IntersectRay(rayStart, rayEnd );
+        return result;
+    }
+    public Godot.Collections.Dictionary AttackRowRelative(int x, int y, bool left)
+    {
+        return AttackRow(x + (int)gridPosition.x, y + (int)gridPosition.y, left);
+    }
+
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
