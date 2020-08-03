@@ -11,7 +11,7 @@ func _ready():
 	rng.randomize()
 	position = Vector2(8,8)
 	start_pos = position
-	bounce_y = start_pos.y + 10
+	bounce_y = start_pos.y + 10 + rng.randf_range(-10,10)
 	momentum = Vector2(0,1).rotated(rng.randf_range(45,135)) * default_speed
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
 
