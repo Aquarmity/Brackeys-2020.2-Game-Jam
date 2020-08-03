@@ -3,19 +3,33 @@ using System;
 
 public class Pyratrid : Monster
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
 
-    // Called when the node enters the scene tree for the first time.
+    private Timer MoveTimer;
+    private RandomNumberGenerator rng = new RandomNumberGenerator();
     public override void _Ready()
     {
+        MoveTimer = GetNode<Timer>("MoveTimer");
+        MoveTimer.Connect("timeout", this, nameof(_on_Move_Timeout));
         base._Ready();
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void _on_Move_Timeout()
+    {
+        switch (rng.RandiRange(1,4))
+        {
+            case 1:
+                MoveGridRelative(1,0);
+                break;
+            case 2:
+                MoveGridRelative(-1,0);
+                break;
+            case 3:
+                MoveGridRelative(0,1);
+                break;
+            case 4:
+                MoveGridRelative(0,-1);
+                break;
+        }
+    }
+
 }

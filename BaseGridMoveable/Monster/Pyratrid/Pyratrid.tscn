@@ -43,3 +43,6 @@ frame = 3
 speed_scale = 0.5
 playing = true
 centered = false
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
