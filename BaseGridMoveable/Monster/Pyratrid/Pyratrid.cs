@@ -8,6 +8,7 @@ public class Pyratrid : Monster
     private RandomNumberGenerator rng = new RandomNumberGenerator();
     public override void _Ready()
     {
+        rng.Randomize();
         MoveTimer = GetNode<Timer>("MoveTimer");
         MoveTimer.Connect("timeout", this, nameof(_on_Move_Timeout));
         base._Ready();
