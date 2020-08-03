@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseGridMoveable\BaseGridMoveable.cs" />
+    <Compile Include="BaseGridMoveable\Monster\Monster.cs" />
+    <Compile Include="BaseGridMoveable\Monster\Pyratrid\Pyratrid.cs" />
     <Compile Include="BaseGridMoveable\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreasureChest\TreasureChest.cs" />
