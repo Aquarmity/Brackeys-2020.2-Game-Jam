@@ -5,9 +5,27 @@ public class Player : BaseGridMoveable
 {
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
+
+	public float maxHealth = 100;
+	private float health;
+	[Export]
+	public float Health
+	{
+		get
+		{
+			return health;
+		}
+		set
+		{
+			health = value;
+			ColorRect fill = GetNode<ColorRect>("CanvasLayer/Sprite/ColorRect");
+			fill.RectScale = new Vector2(health/maxHealth, 1);
+		}
+	}
 	
 	public override void _Ready()
 	{
+		Health = 90;
 		base._Ready();
 	}
 	public override void _Process(float delta)

@@ -77,7 +77,7 @@ public class Pyratrid : Monster
             }
             var result = Attack((int)attackLoc.x, (int)attackLoc.y);
             if (result.Count != 0) {
-                if (((Node2D)result["collider"]).GetNode<LightOccluder2D>("LightOccluder2D") != null)
+                if (((Node2D)result["collider"]).GetNodeOrNull<LightOccluder2D>("LightOccluder2D") != null)
                 {
                     break;
                 }
