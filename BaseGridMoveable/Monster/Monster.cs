@@ -38,7 +38,10 @@ public class Monster : BaseGridMoveable
         numHearts -= 1;
         Sprite rightHeart = GetNode<Sprite>(numHearts.ToString());
         rightHeart.QueueFree();
-        
+        if (numHearts == 0)
+        {
+            Die();
+        }
     }
 
     public void AddHearts(int num)
@@ -118,6 +121,10 @@ public class Monster : BaseGridMoveable
         return AttackRow(x + (int)gridPosition.x, y + (int)gridPosition.y, left);
     }
 
+    public void Die()
+    {
+        QueueFree();
+    }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {

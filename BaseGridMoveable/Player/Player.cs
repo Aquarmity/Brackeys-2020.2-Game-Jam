@@ -73,6 +73,11 @@ public class Player : BaseGridMoveable
 		if (result.Count != 0)  // if there is something there
 		{
 			EmitSignal(nameof(chestTest), result["position"]); // tell the chests to check if it was them that we hit
+
+			if (((Node2D)result["collider"]).HasMethod("SubtractHeart"))
+			{
+				((Monster)result["collider"]).SubtractHeart();
+			}
 			return false;
 		}
 		
