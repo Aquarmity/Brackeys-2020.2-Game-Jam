@@ -18,6 +18,11 @@ public class Player : BaseGridMoveable
 		set
 		{
 			health = value;
+			if (health < 0)
+			{
+				health = 0;
+				Die();
+			}
 			ColorRect fill = GetNode<ColorRect>("CanvasLayer/Sprite/ColorRect");
 			fill.RectScale = new Vector2(health/maxHealth, 1);
 		}
@@ -72,5 +77,14 @@ public class Player : BaseGridMoveable
 		}
 		
 		return true;
+	}
+	public void TakeLaserDamage(float damage)
+	{
+		Health -= damage;
+	}
+
+	public void Die()
+	{
+		QueueFree();
 	}
 }

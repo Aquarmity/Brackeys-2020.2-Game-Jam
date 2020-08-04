@@ -81,6 +81,9 @@ public class Pyratrid : Monster
                 {
                     break;
                 }
+                if (((Node2D)result["collider"]).HasMethod("TakeLaserDamage")) {
+                    ((Player)result["collider"]).TakeLaserDamage(25);
+                }
             }
             SpawnLaser(attackLoc * 16, isYDir );
         }
