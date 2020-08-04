@@ -23,7 +23,7 @@ public class Player : BaseGridMoveable
 				health = 0;
 				Die();
 			}
-			ColorRect fill = GetNode<ColorRect>("CanvasLayer/Sprite/ColorRect");
+			ColorRect fill = GetNode<ColorRect>("CanvasLayer/HealthBar/ColorRect");
 			fill.RectScale = new Vector2(health/maxHealth, 1);
 		}
 	}
