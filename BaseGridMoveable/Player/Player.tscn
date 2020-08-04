@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BaseGridMoveable/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://BaseGridMoveable/Player/Sprites/Player2.png" type="Texture" id=2]
 [ext_resource path="res://BaseGridMoveable/Player/Sprites/Player1.png" type="Texture" id=3]
 [ext_resource path="res://BaseGridMoveable/Player/Sprites/LightTexture3.png" type="Texture" id=4]
-[ext_resource path="res://BaseGridMoveable/Player/HealthBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -32,7 +31,6 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.5
 playing = true
 centered = false
@@ -45,9 +43,3 @@ mode = 2
 range_z_max = 100
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
-follow_viewport_enable = true
-
-[node name="Sprite" parent="CanvasLayer" instance=ExtResource( 5 )]

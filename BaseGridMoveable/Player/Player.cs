@@ -3,26 +3,11 @@ using System;
 
 public class Player : BaseGridMoveable
 {
-	public float maxHealth = 100;
-	[Export]
-	public float health
-	{
-		get
-		{
-			return health;
-		}
-		set{
-			health = value;
-			ColorRect fill = GetNode<ColorRect>("CanvasLayer/Sprite/ColorRect");
-			fill.RectScale = new Vector2(fill.RectScale.x, health/maxHealth);
-		}
-	}
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
 	
 	public override void _Ready()
 	{
-		health = 75;
 		base._Ready();
 	}
 	public override void _Process(float delta)
