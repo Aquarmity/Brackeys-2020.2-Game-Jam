@@ -36,6 +36,7 @@ animations = [ {
 } ]
 
 [node name="Coin" type="AnimatedSprite"]
+z_index = 101
 frames = SubResource( 7 )
 frame = 4
 speed_scale = 1.1

@@ -4,12 +4,13 @@ using System;
 public class Monster : BaseGridMoveable
 {
     private PackedScene heartScene = GD.Load<PackedScene>("res://BaseGridMoveable/Monster/Heart.tscn");
-
+    private PackedScene coinScene = GD.Load<PackedScene>("res://Coin/Coin.tscn");
     [Export]
     public int numHearts = 3;
 
     public Sprite[] heartArray;
 
+    public int numCoins = 3;
 
     public override void _Ready()
     {
@@ -123,6 +124,13 @@ public class Monster : BaseGridMoveable
 
     public void Die()
     {
+        for(int i = 0; i < numCoins; i++)
+        {
+            AnimatedSprite newCoin = (AnimatedSprite)coinScene.Instance();
+            newCoin.Position = Position;
+            newCoin.Set("start_pos", Position);
+            GetParent().AddChild(newCoin);
+        }
         QueueFree();
     }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
