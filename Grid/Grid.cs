@@ -14,6 +14,8 @@ public class Grid : Node2D
             fileToRoomArr(file);
         }
         GD.Print((roomArray[0,0]));
+        ShiftRowLeft(0);
+        GD.Print((roomArray[0,1]));
     }
 
     private void fileToRoomArr(string file)
@@ -45,7 +47,40 @@ public class Grid : Node2D
                 files.Add(file);
             }
         }
-        
+
         return files;
     }
+
+    public void ShiftRowLeft(int row)
+    {
+        var storage = roomArray[row, 0];
+        for (int i = 1; i < arraySize; i++)
+        {
+            roomArray[row,i - 1] = roomArray[row, i];
+
+        }
+        roomArray[row,arraySize - 1] = storage;
+    }
+    public void ShiftRowRight(int row)
+    {
+        var storage = roomArray[row, arraySize - 1 ];
+        for (int i = 1; i <= arraySize - 1; i++)
+        {
+            roomArray[row, arraySize - i] = roomArray[row, arraySize - i - 1];
+        }
+        roomArray[row,0] = storage;
+    }
+    public void ShiftRow(int row, bool left)
+    {
+        if (left)
+        {
+            ShiftRowLeft(row);
+        } 
+        else 
+        {
+            ShiftRowRight(row);
+        }
+    }
+
+
 }
