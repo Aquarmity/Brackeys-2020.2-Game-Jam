@@ -10,13 +10,13 @@ public class Room : Node2D
     public Grid theGrid;
     
     [Export]
-    bool left = true;
+    public bool left = true;
     [Export]
-    bool right = true;
+    public bool right = true;
     [Export]
-    bool up = true;
+    public bool up = true;
     [Export]
-    bool down = true;
+    public bool down = true;
 
 
     public override void _Ready()

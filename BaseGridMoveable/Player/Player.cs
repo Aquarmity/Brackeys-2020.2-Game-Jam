@@ -72,22 +72,42 @@ public class Player : BaseGridMoveable
 	private void checkForRoomChange()
 	{
 		if (Position.x < 0) {
-			myGrid.moveLeft();
-			UpdatePos(new Vector2(GetViewportRect().Size.x - 16, Position.y));
+			if (myGrid.moveLeft())
+			{
+				UpdatePos(new Vector2(GetViewportRect().Size.x - 16, Position.y));
+			} else
+			{
+				PlayerMoveGrid(MoveGridRelativeBase(1,0));
+			}
 		}
 		if (Position.x > GetViewportRect().Size.x - 16) 
 		{
-			myGrid.moveRight();
-			UpdatePos(new Vector2(0, Position.y));
+			if (myGrid.moveRight())
+			{
+				UpdatePos(new Vector2(0, Position.y));
+			} else
+			{
+				PlayerMoveGrid(MoveGridRelativeBase(-1,0));
+			}
 		}
 		if (Position.y < 0) {
-			myGrid.moveUp();
-			UpdatePos(new Vector2(Position.x, GetViewportRect().Size.y - 16));
+			if (myGrid.moveUp())
+			{
+				UpdatePos(new Vector2(Position.x, GetViewportRect().Size.y - 16));
+			} else
+			{
+				PlayerMoveGrid(MoveGridRelativeBase(0,1));
+			}
 		}
 		if (Position.y > GetViewportRect().Size.y - 16)
 		{
-			myGrid.moveDown();
-			UpdatePos(new Vector2(Position.x, 0));
+			if (myGrid.moveDown())
+			{
+				UpdatePos(new Vector2(Position.x, 0));
+			} else
+			{
+				PlayerMoveGrid(MoveGridRelativeBase(0,-1));
+			}
 		}
 		
 	}

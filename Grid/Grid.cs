@@ -165,10 +165,13 @@ public class Grid : Node2D
         {
             Connect(nameof(changeRooms), newCurrentRoom, "_onChangeRooms");
         }
+
+        GD.Print(x, y);
     }
 
-    public void moveRooms(int x, int y)
+    public bool moveRooms(int x, int y)
     {
+        bool didMove = true;
         if (x > arraySize || y > arraySize) {
             GD.Print("moveRooms: X or Y are greater than the size of the map. ");
         }
@@ -179,6 +182,7 @@ public class Grid : Node2D
         if (y > arraySize - 1) 
         {
             y = arraySize - 1; // don't loop on y axis going overboard
+            didMove = false;
         }
         if (x < 0)
         {
@@ -187,31 +191,58 @@ public class Grid : Node2D
         if (y < 0)
         {
             y = 0; // don't loop on the y axis going over the min place
+            didMove = false;
         }
 
+        if (x - currentX == 1) {
+            if (roomArray[x,y].left == false)
+            {
+                return false;
+            }
+        }
+        if (x - currentX == -1) {
+            if (roomArray[x,y].right == false)
+            {
+                return false;
+            }
+        }
+        if (y - currentY == 1) {
+            if (roomArray[x,y].up == false)
+            {
+                return false;
+            }
+        }
+        if (y - currentY == -1)
+        {
+            if (roomArray[x,y].down == false)
+            {
+                return false;
+            }
+        }
         currentX = x;
         currentY = y;
         DisplayRoom(x,y);
+        return didMove;
     }
-    public void moveRoomsRelative(int x, int y)
+    public bool moveRoomsRelative(int x, int y)
     {
-        moveRooms(currentX + x, currentY + y);
+        return moveRooms(currentX + x, currentY + y);
     }
 
-    public void moveUp()
+    public bool moveUp()
     {
-        moveRoomsRelative(0, -1);
+        return moveRoomsRelative(0, -1);
     }
-    public void moveDown()
+    public bool moveDown()
     {
-        moveRoomsRelative(0,1);
+        return moveRoomsRelative(0,1);
     }
-    public void moveLeft()
+    public bool moveLeft()
     {
-        moveRoomsRelative(-1, 0);
+        return moveRoomsRelative(-1, 0);
     }
-    public void moveRight()
+    public bool moveRight()
     {
-        moveRoomsRelative(1,0);
+        return moveRoomsRelative(1,0);
     }
 }
