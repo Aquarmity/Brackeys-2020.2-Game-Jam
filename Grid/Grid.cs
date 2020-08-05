@@ -33,7 +33,9 @@ public class Grid : Node2D
         {
             for(int j = 0; j < arraySize; j++)
             {
-                roomArray[i,j] = (Room)((GD.Load<PackedScene>("res://Room/Room.tscn")).Instance());
+                var newRoom = (Room)((GD.Load<PackedScene>("res://Room/Room.tscn")).Instance());
+                newRoom.Name = i.ToString() + j.ToString();
+                roomArray[i,j] = newRoom;
             }
         }
     }
@@ -159,7 +161,10 @@ public class Grid : Node2D
         EmitSignal(nameof(changeRooms));
         
         AddChild(newCurrentRoom);
-        Connect(nameof(changeRooms), newCurrentRoom, "_onChangeRooms");
+        if(!IsConnected(nameof(changeRooms), newCurrentRoom, "_onChangeRooms"))
+        {
+            Connect(nameof(changeRooms), newCurrentRoom, "_onChangeRooms");
+        }
     }
 
     public void moveRooms(int x, int y)

@@ -6,12 +6,24 @@ public class Room : Node2D
     [Export]
     public int[] coord = {0,0};
     public int frameSymbol = 15;
-    
 
+    public Grid theGrid;
+    
+    [Export]
     bool left = true;
+    [Export]
     bool right = true;
+    [Export]
     bool up = true;
+    [Export]
     bool down = true;
+
+
+    public override void _Ready()
+    {
+        calculateSymbol();
+        theGrid = (Grid)GetParent();
+    }
 
     public void calculateSymbol()
     {
@@ -115,7 +127,13 @@ public class Room : Node2D
 
     public void _onChangeRooms()
     {
-        QueueFree();
+        foreach(Room eachRoom in theGrid.GetChildren())
+        {
+            if(Name == eachRoom.Name)
+            {
+                theGrid.RemoveChild(this);        
+            }
+        }      
     }
 
 }

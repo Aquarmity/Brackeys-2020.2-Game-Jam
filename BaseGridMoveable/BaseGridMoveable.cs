@@ -7,7 +7,7 @@ public class BaseGridMoveable : KinematicBody2D
 	
 	public Vector2 gridPosition;
 	
-	private Vector2 newPosition;
+	protected Vector2 newPosition;
 	public float maxSpeed = 16.0f;
 	
 	public override void _Ready()

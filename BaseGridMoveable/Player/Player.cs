@@ -6,6 +6,7 @@ public class Player : BaseGridMoveable
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
 
+
 	public float maxHealth = 100;
 	private float health;
 	[Export]
@@ -27,15 +28,16 @@ public class Player : BaseGridMoveable
 			fill.RectScale = new Vector2(health/maxHealth, 1);
 		}
 	}
-	
+	Grid myGrid;
 	public override void _Ready()
 	{
-		Health = 90;
 		base._Ready();
+		myGrid = GetParent().GetNode<Grid>("Grid");
 	}
 	public override void _Process(float delta)
 	{
 		base._Process(delta);
+		checkForRoomChange();
 	}
 	public override void _Input(InputEvent inputEvent)
 	{
@@ -67,7 +69,37 @@ public class Player : BaseGridMoveable
 		
 		
 	}
-	
+	private void checkForRoomChange()
+	{
+		if (Position.x < 0) {
+			myGrid.moveLeft();
+			UpdatePos(new Vector2(GetViewportRect().Size.x - 16, Position.y));
+		}
+		if (Position.x > GetViewportRect().Size.x - 16) 
+		{
+			myGrid.moveRight();
+			UpdatePos(new Vector2(0, Position.y));
+		}
+		if (Position.y < 0) {
+			myGrid.moveUp();
+			UpdatePos(new Vector2(Position.x, GetViewportRect().Size.y - 16));
+		}
+		if (Position.y > GetViewportRect().Size.y - 16)
+		{
+			myGrid.moveDown();
+			UpdatePos(new Vector2(Position.x, 0));
+		}
+		
+	}
+
+	private void UpdatePos(Vector2 newPos)
+	{
+		Position = newPos;
+		newPosition = Position;
+		gridPosition.x = Position.x / 16;
+		gridPosition.y = Position.y / 16;
+	}
+
 	private bool PlayerMoveGrid(Godot.Collections.Dictionary result)
 	{
 		if (result.Count != 0)  // if there is something there
