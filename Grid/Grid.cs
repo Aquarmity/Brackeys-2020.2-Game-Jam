@@ -14,7 +14,7 @@ public class Grid : Node2D
             fileToRoomArr(file);
         }
         GD.Print((roomArray[0,0]));
-        ShiftRowLeft(0);
+        ShiftRowRight(0);
         GD.Print((roomArray[0,1]));
     }
 
@@ -81,6 +81,35 @@ public class Grid : Node2D
             ShiftRowRight(row);
         }
     }
+    public void ShiftColumnUp(int column)
+    {
+        var storage = roomArray[0, column];
+        for (int i = 1; i < arraySize; i++)
+        {
+            roomArray[i - 1, column] = roomArray[i, column];
 
+        }
+        roomArray[arraySize - 1, column] = storage;
+    }
+    public void ShiftColumnDown(int column)
+    {
+        var storage = roomArray[arraySize - 1, column ];
+        for (int i = 1; i <= arraySize - 1; i++)
+        {
+            roomArray[ arraySize - i, column] = roomArray[ arraySize - i - 1, column];
+        }
+        roomArray[0, column] = storage;
+    }
+    public void ShiftColumn(int column, bool up)
+    {
+        if (up)
+        {
+            ShiftColumnUp(column);
+        }
+        else
+        {
+            ShiftColumnDown(column);
+        }
+    }
 
 }
