@@ -71,6 +71,7 @@
     <Compile Include="Room\Rooms\Room03.cs" />
     <Compile Include="Room\Rooms\Room04.cs" />
     <Compile Include="Room\Rooms\Room10.cs" />
+    <Compile Include="Room\Rooms\Room11.cs" />
     <Compile Include="TreasureChest\TreasureChest.cs" />
     <Compile Include="UIGrid\ArrowButton.cs" />
     <Compile Include="UIGrid\UIGrid.cs" />
