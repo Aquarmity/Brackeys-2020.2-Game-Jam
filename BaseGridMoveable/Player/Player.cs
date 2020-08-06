@@ -31,6 +31,7 @@ public class Player : BaseGridMoveable
 	Grid myGrid;
 	public override void _Ready()
 	{
+		Health = 100;
 		base._Ready();
 		myGrid = GetParent().GetNode<Grid>("Grid");
 	}
