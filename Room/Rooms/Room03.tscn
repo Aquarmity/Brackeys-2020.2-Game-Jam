@@ -1,0 +1,202 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Room/Rooms/Room03.cs" type="Script" id=1]
+[ext_resource path="res://Wall/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tilemaps/SandTileMap/SandTileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BaseGridMoveable/Monster/Pyratrid/Pyratrid.tscn" type="PackedScene" id=5]
+
+[node name="Room03" type="Node2D"]
+script = ExtResource( 1 )
+coord = PoolIntArray( 0, 3 )
+left = false
+right = false
+down = false
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 2 )]
+
+[node name="Wall37" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 16 )
+
+[node name="Wall38" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 32 )
+
+[node name="Wall39" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 48 )
+
+[node name="Wall40" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 64 )
+
+[node name="Wall41" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 80 )
+
+[node name="Wall42" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 96 )
+
+[node name="Wall43" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 112 )
+
+[node name="Wall44" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 128 )
+
+[node name="Wall45" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 144 )
+
+[node name="Wall46" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 160 )
+
+[node name="Wall47" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 16 )
+
+[node name="Wall48" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 32 )
+
+[node name="Wall49" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 48 )
+
+[node name="Wall50" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 64 )
+
+[node name="Wall51" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 80 )
+
+[node name="Wall52" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 96 )
+
+[node name="Wall53" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 112 )
+
+[node name="Wall54" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 128 )
+
+[node name="Wall55" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 144 )
+
+[node name="Wall56" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 160 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 16, 0 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 32, 0 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 48, 0 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 64, 0 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 80, 0 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 96, 0 )
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 208, 0 )
+
+[node name="Wall15" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 224, 0 )
+
+[node name="Wall16" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 240, 0 )
+
+[node name="Wall17" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 256, 0 )
+
+[node name="Wall18" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 272, 0 )
+
+[node name="Wall57" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 288, 0 )
+
+[node name="Wall58" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 0 )
+
+[node name="Wall19" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 0, 176 )
+
+[node name="Wall20" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 16, 176 )
+
+[node name="Wall21" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 32, 176 )
+
+[node name="Wall22" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 48, 176 )
+
+[node name="Wall23" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 64, 176 )
+
+[node name="Wall24" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 80, 176 )
+
+[node name="Wall25" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 96, 176 )
+
+[node name="Wall26" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 112, 176 )
+
+[node name="Wall27" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 128, 176 )
+
+[node name="Wall28" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 144, 176 )
+
+[node name="Wall29" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 160, 176 )
+
+[node name="Wall30" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 176, 176 )
+
+[node name="Wall31" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 192, 176 )
+
+[node name="Wall32" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 208, 176 )
+
+[node name="Wall33" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 224, 176 )
+
+[node name="Wall34" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 240, 176 )
+
+[node name="Wall35" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 256, 176 )
+
+[node name="Wall36" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 272, 176 )
+
+[node name="Wall59" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 288, 176 )
+
+[node name="Wall60" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 304, 176 )
+
+[node name="Rocks" type="Node2D" parent="."]
+
+[node name="Rock" parent="Rocks" instance=ExtResource( 4 )]
+position = Vector2( 112, 64 )
+
+[node name="Rock4" parent="Rocks" instance=ExtResource( 4 )]
+position = Vector2( 64, 144 )
+
+[node name="Rock2" parent="Rocks" instance=ExtResource( 4 )]
+position = Vector2( 208, 112 )
+
+[node name="Rock3" parent="Rocks" instance=ExtResource( 4 )]
+position = Vector2( 256, 48 )
+
+[node name="SandTileMap" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128, 64 )
+z_index = -1
+tile_data = PoolIntArray( -196609, 0, 0, -262144, 0, 1, -262143, 0, 1, -262142, 0, 1, -262141, 0, 1, -262140, 0, 2, -131079, 0, 0, -131078, 0, 1, -131077, 0, 1, -131076, 0, 1, -131075, 0, 1, -131074, 0, 1, -131073, 0, 65537, -196608, 0, 65537, -196607, 0, 65537, -196606, 0, 65537, -196605, 0, 65537, -196604, 0, 65537, -196603, 0, 1, -196602, 0, 1, -196601, 0, 1, -196600, 0, 1, -196599, 0, 1, -196598, 0, 2, -65543, 0, 65536, -65542, 0, 65537, -65541, 0, 65537, -65540, 0, 65537, -65539, 0, 65537, -65538, 0, 65537, -65537, 0, 65537, -131072, 0, 65537, -131071, 0, 65537, -131070, 0, 65537, -131069, 0, 65537, -131068, 0, 65537, -131067, 0, 65537, -131066, 0, 65537, -131065, 0, 65537, -131064, 0, 65537, -131063, 0, 65537, -131062, 0, 65538, -7, 0, 65536, -6, 0, 65537, -5, 0, 65537, -4, 0, 65537, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65537, -65533, 0, 65537, -65532, 0, 65537, -65531, 0, 65537, -65530, 0, 65537, -65529, 0, 65537, -65528, 0, 65537, -65527, 0, 65537, -65526, 0, 65538, 65529, 0, 65536, 65530, 0, 65537, 65531, 0, 65537, 65532, 0, 65537, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65538, 131065, 0, 65536, 131066, 0, 65537, 131067, 0, 65537, 131068, 0, 65537, 131069, 0, 65537, 131070, 0, 65537, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65538, 196601, 0, 65536, 196602, 0, 65537, 196603, 0, 65537, 196604, 0, 65537, 196605, 0, 65537, 196606, 0, 65537, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65538, 262137, 0, 65536, 262138, 0, 65537, 262139, 0, 65537, 262140, 0, 65537, 262141, 0, 65537, 262142, 0, 65537, 262143, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65538, 327673, 0, 65536, 327674, 0, 65537, 327675, 0, 65537, 327676, 0, 65537, 327677, 0, 65537, 327678, 0, 65537, 327679, 0, 65537, 262144, 0, 65537, 262145, 0, 65537, 262146, 0, 65537, 262147, 0, 65537, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 65537, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65538, 393209, 0, 65536, 393210, 0, 65537, 393211, 0, 65537, 393212, 0, 65537, 393213, 0, 65537, 393214, 0, 65537, 393215, 0, 65537, 327680, 0, 65537, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 65537, 327684, 0, 65537, 327685, 0, 65537, 327686, 0, 65537, 327687, 0, 65537, 327688, 0, 65537, 327689, 0, 65537, 327690, 0, 65538, 458745, 0, 131072, 458746, 0, 131073, 458747, 0, 131073, 458748, 0, 131073, 458749, 0, 131073, 458750, 0, 131073, 458751, 0, 131073, 393216, 0, 131073, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 131073, 393221, 0, 131073, 393222, 0, 131073, 393223, 0, 131073, 393224, 0, 131073, 393225, 0, 131073, 393226, 0, 131074 )
+
+[node name="Pyratrid" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, 48 )
+
+[node name="Pyratrid2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 112 )

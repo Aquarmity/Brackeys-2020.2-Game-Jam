@@ -11,7 +11,10 @@ onready var coin_node = get_parent().get_parent().get_node_or_null("Player/Canva
 
 func _ready():
 	if coin_node == null:
-		coin_node = get_parent().get_node("Player/CanvasLayer/Sprite2")
+		coin_node = get_parent().get_parent().get_parent().get_parent().get_node_or_null("Player/CanvasLayer/Sprite2")
+	if coin_node == null:
+		coin_node = get_parent().get_parent().get_parent().get_node("Player/CanvasLayer/Sprite2")
+	
 	rng.randomize()
 	if start_pos == Vector2(0,0):
 		position = Vector2(8,8)

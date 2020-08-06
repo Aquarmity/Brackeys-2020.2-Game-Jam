@@ -26,7 +26,6 @@ public class Grid : Node2D
             fileToRoomArr(file);
         }
         GD.Print((roomArray[0,0]));
-        ShiftRowRight(0);
         GD.Print((roomArray[0,1]));
         DisplayRoom(currentX,currentY);
         
@@ -61,8 +60,9 @@ public class Grid : Node2D
     private void fileToRoomArr(string file)
     {
         PackedScene roomScene = GD.Load<PackedScene>((roomPathName + file));
-        Room roomInstance = (Room)roomScene.Instance();
-        roomArray[0,0] = roomInstance;
+        Room roomInstance = (Room)roomScene.Instance();   
+        roomInstance.calculateSymbol();
+        roomArray[roomInstance.coord[0],roomInstance.coord[1]] = roomInstance;
         
     }
 
@@ -85,6 +85,7 @@ public class Grid : Node2D
             else if (!(file.BeginsWith(".")) && (file.EndsWith(".tscn")))
             {
                 files.Add(file);
+                GD.Print(file);
             }
         }
 

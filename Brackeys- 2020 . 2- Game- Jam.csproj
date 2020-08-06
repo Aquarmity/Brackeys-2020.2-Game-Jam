@@ -65,7 +65,12 @@
     <Compile Include="Grid\Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Room.cs" />
-    <Compile Include="Room\Rooms\Room1.cs" />
+    <Compile Include="Room\Rooms\Room00.cs" />
+    <Compile Include="Room\Rooms\Room01.cs" />
+    <Compile Include="Room\Rooms\Room02.cs" />
+    <Compile Include="Room\Rooms\Room03.cs" />
+    <Compile Include="Room\Rooms\Room04.cs" />
+    <Compile Include="Room\Rooms\Room10.cs" />
     <Compile Include="TreasureChest\TreasureChest.cs" />
     <Compile Include="UIGrid\ArrowButton.cs" />
     <Compile Include="UIGrid\UIGrid.cs" />
