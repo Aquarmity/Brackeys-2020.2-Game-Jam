@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UIGrid/Sprites/Pressed.png" type="Texture" id=1]
+[ext_resource path="res://UIGrid/ArrowButton.cs" type="Script" id=2]
+[ext_resource path="res://UIGrid/Sprites/notPressed.png" type="Texture" id=3]
+
+[node name="ArrowButton" type="TextureButton"]
+margin_right = 8.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+rect_pivot_offset = Vector2( 4, 4 )
+action_mode = 0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

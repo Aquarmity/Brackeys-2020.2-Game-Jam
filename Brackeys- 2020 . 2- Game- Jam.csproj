@@ -61,11 +61,14 @@
     <Compile Include="BaseGridMoveable\Monster\Monster.cs" />
     <Compile Include="BaseGridMoveable\Monster\Pyratrid\Pyratrid.cs" />
     <Compile Include="BaseGridMoveable\Player\Player.cs" />
+    <Compile Include="game.cs" />
     <Compile Include="Grid\Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Room.cs" />
     <Compile Include="Room\Rooms\Room1.cs" />
     <Compile Include="TreasureChest\TreasureChest.cs" />
+    <Compile Include="UIGrid\ArrowButton.cs" />
+    <Compile Include="UIGrid\UIGrid.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

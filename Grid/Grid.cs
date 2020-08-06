@@ -14,8 +14,11 @@ public class Grid : Node2D
     public int currentX = 0;
     public int currentY = 0;
 
+    public UIGrid theUIGrid;
+
     public override void _Ready()
     {
+        theUIGrid = GetParent().GetNode<UIGrid>("UIUnderHealth/UIGrid");
         fillRoomWithBaseRoom();
         var files = getTscnInDir(roomPathName);
         foreach(string file in files)
@@ -26,6 +29,21 @@ public class Grid : Node2D
         ShiftRowRight(0);
         GD.Print((roomArray[0,1]));
         DisplayRoom(currentX,currentY);
+        
+    }
+
+    public void SetUpMenuGrid()
+    {
+        for (int i = 0; i < arraySize; i++)
+        {
+            for (int j = 0; j < arraySize; j++)
+            {
+                string myPath = "UIUnderHealth/UIGrid/RoomGrid/GridContainer/Control";
+                myPath = myPath + i.ToString() + j.ToString() + "/RoomSymbol";
+                GetParent().GetNode<AnimatedSprite>(myPath).Frame = roomArray[j,i].frameSymbol;
+            }
+        }
+        theUIGrid.UpdatePlayerBlinker();
     }
     private void fillRoomWithBaseRoom()
     {
@@ -82,10 +100,12 @@ public class Grid : Node2D
 
         }
         roomArray[row,arraySize - 1] = storage;
-        currentY -= 1;
-        if(currentY < 0)
-        {
-            currentY = arraySize - 1;
+        if (currentX == row) {
+            currentY -= 1;
+            if(currentY < 0)
+            {
+                currentY = arraySize - 1;
+            }
         }
     }
     public void ShiftRowRight(int row)
@@ -96,9 +116,11 @@ public class Grid : Node2D
             roomArray[row, arraySize - i] = roomArray[row, arraySize - i - 1];
         }
         roomArray[row,0] = storage;
-        currentY += 1;
-        if (currentY > arraySize - 1) {
-            currentY = 0;
+        if (row == currentX) {
+            currentY += 1;
+            if (currentY > arraySize - 1) {
+                currentY = 0;
+            }
         }
     }
     public void ShiftRow(int row, bool left)
@@ -121,10 +143,12 @@ public class Grid : Node2D
 
         }
         roomArray[arraySize - 1, column] = storage;
-        currentX -= 1;
-        if (currentX < 0)
-        {
-            currentX = arraySize - 1;
+        if (currentY == column) {
+            currentX -= 1;
+            if (currentX < 0)
+            {
+                currentX = arraySize - 1;
+            }
         }
     }
     public void ShiftColumnDown(int column)
@@ -135,11 +159,12 @@ public class Grid : Node2D
             roomArray[ arraySize - i, column] = roomArray[ arraySize - i - 1, column];
         }
         roomArray[0, column] = storage;
-
-        currentX += 1;
-        if (currentX > arraySize -1)
-        {
-            currentX = 0;
+        if(column == currentY) {
+            currentX += 1;
+            if (currentX > arraySize -1)
+            {
+                currentX = 0;
+            }
         }
     }
     public void ShiftColumn(int column, bool up)
@@ -222,6 +247,7 @@ public class Grid : Node2D
         currentX = x;
         currentY = y;
         DisplayRoom(x,y);
+        SetUpMenuGrid();
         return didMove;
     }
     public bool moveRoomsRelative(int x, int y)

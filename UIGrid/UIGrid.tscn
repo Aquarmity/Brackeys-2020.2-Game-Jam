@@ -1,0 +1,345 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Room/RoomSymbol.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UIGrid/ArrowButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UIGrid/UIGrid.cs" type="Script" id=3]
+
+[node name="UIGrid" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+margin_right = 320.0
+margin_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoomGrid" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="RoomGrid"]
+margin_left = 132.0
+margin_top = 68.0
+margin_right = 188.0
+margin_bottom = 124.0
+columns = 5
+
+[node name="Control00" type="Control" parent="RoomGrid/GridContainer"]
+margin_right = 8.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control00" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control01" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 12.0
+margin_right = 20.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control01" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control02" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 24.0
+margin_right = 32.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control02" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control03" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 36.0
+margin_right = 44.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control03" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control04" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 48.0
+margin_right = 56.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control04" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control10" type="Control" parent="RoomGrid/GridContainer"]
+margin_top = 12.0
+margin_right = 8.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control10" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control11" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control11" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control12" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 24.0
+margin_top = 12.0
+margin_right = 32.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control12" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control13" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 36.0
+margin_top = 12.0
+margin_right = 44.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control13" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control14" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 48.0
+margin_top = 12.0
+margin_right = 56.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control14" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control20" type="Control" parent="RoomGrid/GridContainer"]
+margin_top = 24.0
+margin_right = 8.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control20" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control21" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 12.0
+margin_top = 24.0
+margin_right = 20.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control21" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control22" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control22" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control23" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 36.0
+margin_top = 24.0
+margin_right = 44.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control23" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control24" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 56.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control24" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control30" type="Control" parent="RoomGrid/GridContainer"]
+margin_top = 36.0
+margin_right = 8.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control30" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control31" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 12.0
+margin_top = 36.0
+margin_right = 20.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control31" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control32" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 24.0
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control32" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control33" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 36.0
+margin_top = 36.0
+margin_right = 44.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control33" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control34" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 48.0
+margin_top = 36.0
+margin_right = 56.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control34" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control40" type="Control" parent="RoomGrid/GridContainer"]
+margin_top = 48.0
+margin_right = 8.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control40" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control41" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 12.0
+margin_top = 48.0
+margin_right = 20.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control41" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control42" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 24.0
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control42" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control43" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 36.0
+margin_top = 48.0
+margin_right = 44.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control43" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Control44" type="Control" parent="RoomGrid/GridContainer"]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 56.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="RoomSymbol" parent="RoomGrid/GridContainer/Control44" instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="TopArrowButtons" type="HBoxContainer" parent="."]
+margin_left = 132.0
+margin_top = 56.0
+margin_right = 192.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowButton" parent="TopArrowButtons" instance=ExtResource( 2 )]
+
+[node name="ArrowButton2" parent="TopArrowButtons" instance=ExtResource( 2 )]
+margin_left = 12.0
+margin_right = 20.0
+number = 1
+
+[node name="ArrowButton3" parent="TopArrowButtons" instance=ExtResource( 2 )]
+margin_left = 24.0
+margin_right = 32.0
+number = 2
+
+[node name="ArrowButton4" parent="TopArrowButtons" instance=ExtResource( 2 )]
+margin_left = 36.0
+margin_right = 44.0
+number = 3
+
+[node name="ArrowButton5" parent="TopArrowButtons" instance=ExtResource( 2 )]
+margin_left = 48.0
+margin_right = 56.0
+number = 4
+
+[node name="SideArrowButtons" type="HBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 124.0
+margin_right = 180.0
+margin_bottom = 132.0
+rect_rotation = -90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowButton" parent="SideArrowButtons" instance=ExtResource( 2 )]
+number = 4
+rotated = true
+
+[node name="ArrowButton2" parent="SideArrowButtons" instance=ExtResource( 2 )]
+margin_left = 12.0
+margin_right = 20.0
+number = 3
+rotated = true
+
+[node name="ArrowButton3" parent="SideArrowButtons" instance=ExtResource( 2 )]
+margin_left = 24.0
+margin_right = 32.0
+number = 2
+rotated = true
+
+[node name="ArrowButton4" parent="SideArrowButtons" instance=ExtResource( 2 )]
+margin_left = 36.0
+margin_right = 44.0
+number = 1
+rotated = true
+
+[node name="ArrowButton5" parent="SideArrowButtons" instance=ExtResource( 2 )]
+margin_left = 48.0
+margin_right = 56.0
+rotated = true
+
+[node name="PlayerBlinker" parent="." instance=ExtResource( 1 )]
+z_index = 1
+frame = 17
