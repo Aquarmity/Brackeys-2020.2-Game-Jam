@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Room/Rooms/Room00.cs" type="Script" id=1]
 [ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Wall/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilemaps/SandTileMap/SandTileMap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Emblem/Emblem.tscn" type="PackedScene" id=5]
 
 [node name="Room00" type="Node2D"]
 script = ExtResource( 1 )
@@ -214,6 +213,3 @@ position = Vector2( 240, 112 )
 
 [node name="Rock3" parent="Rocks" instance=ExtResource( 2 )]
 position = Vector2( 192, 32 )
-
-[node name="Emblem" parent="." instance=ExtResource( 5 )]
-position = Vector2( 160, 64 )

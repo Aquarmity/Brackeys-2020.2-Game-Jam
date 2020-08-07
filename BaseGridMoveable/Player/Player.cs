@@ -3,8 +3,11 @@ using System;
 
 public class Player : BaseGridMoveable
 {
+	bool hasEmblem = false;
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
+
+	private PackedScene myEmblem = GD.Load<PackedScene>("res://BaseGridMoveable/Player/EmblemGUI.tscn");
 
 	private PackedScene playerSlash = GD.Load<PackedScene>("res://BaseGridMoveable/Player/PlayerSlash.tscn");
 	
@@ -163,5 +166,12 @@ public class Player : BaseGridMoveable
 		currectSlash.QueueFree();
 		attacking = false;
 		currectSlash = null;
+	}
+
+	public void _onGetEmblem(Node body) 
+	{
+		hasEmblem = true;
+		Sprite myEmblemInstance = (Sprite)myEmblem.Instance();
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(myEmblemInstance);
 	}
 }

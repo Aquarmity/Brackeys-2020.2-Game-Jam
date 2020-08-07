@@ -190,6 +190,7 @@ position = Vector2( 288, 176 )
 position = Vector2( 304, 176 )
 
 [node name="Rocks" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Rock" parent="Rocks" instance=ExtResource( 6 )]
 position = Vector2( 208, 32 )

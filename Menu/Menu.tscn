@@ -57,10 +57,10 @@ __meta__ = {
 }
 
 [node name="TextureButton2" type="TextureButton" parent="MenuName"]
-margin_left = 3.68446
-margin_top = 17.5319
-margin_right = 67.6845
-margin_bottom = 81.5319
+margin_left = 16.3266
+margin_top = 19.0272
+margin_right = 80.3266
+margin_bottom = 83.0272
 toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )

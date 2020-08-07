@@ -61,6 +61,7 @@
     <Compile Include="BaseGridMoveable\Monster\Monster.cs" />
     <Compile Include="BaseGridMoveable\Monster\Pyratrid\Pyratrid.cs" />
     <Compile Include="BaseGridMoveable\Player\Player.cs" />
+    <Compile Include="Emblem\Emblem.cs" />
     <Compile Include="game.cs" />
     <Compile Include="Grid\Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
