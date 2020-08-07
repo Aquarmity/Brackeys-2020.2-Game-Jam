@@ -6,6 +6,11 @@ public class Player : BaseGridMoveable
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
 
+	private PackedScene playerSlash = GD.Load<PackedScene>("res://BaseGridMoveable/Player/PlayerSlash.tscn");
+	
+	public AnimatedSprite currectSlash = null;
+	
+	public bool attacking = false;
 
 	public float maxHealth = 100;
 	private float health;
@@ -127,9 +132,16 @@ public class Player : BaseGridMoveable
 		{
 			EmitSignal(nameof(chestTest), result["position"]); // tell the chests to check if it was them that we hit
 
-			if (((Node2D)result["collider"]).HasMethod("SubtractHeart"))
+			if (((Node2D)result["collider"]).HasMethod("SubtractHeart") && !attacking)
 			{
 				((Monster)result["collider"]).SubtractHeart();
+				attacking = true;
+				currectSlash = (AnimatedSprite)playerSlash.Instance();
+				GetParent().AddChild(currectSlash);
+				currectSlash.Playing = true;
+				currectSlash.Frame = 0;
+				currectSlash.Position = ((Monster)result["collider"]).Position;
+				currectSlash.Connect("animation_finished", this, nameof(_onSlashEnd));
 			}
 			return false;
 		}
@@ -144,5 +156,12 @@ public class Player : BaseGridMoveable
 	public void Die()
 	{
 		QueueFree();
+	}
+
+	public void _onSlashEnd()
+	{
+		currectSlash.QueueFree();
+		attacking = false;
+		currectSlash = null;
 	}
 }

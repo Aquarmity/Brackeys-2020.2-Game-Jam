@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Menu/Sprites/MenuBackground.png" type="Texture" id=1]
+[ext_resource path="res://Menu/Sprites/MenuPlay.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Sprites/MenuName.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Sprites/MenuPlayPressed.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Sprites/MenuSound1.png" type="Texture" id=5]
+[ext_resource path="res://Menu/Sprites/MenuSound2.png" type="Texture" id=6]
+[ext_resource path="res://Menu/TextureButton.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "PYR"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MenuName:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 160, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MenuName:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 77.8797, -0.25, 0, 0.25, 0, 82.5443, -0.25, 0, 0.25, 0, 77.88, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[node name="Menu" type="Node2D"]
+
+[node name="MenuBackground" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="MenuName" type="Sprite" parent="."]
+position = Vector2( 160, 77.88 )
+texture = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="MenuName"]
+margin_left = -47.2659
+margin_top = 34.12
+margin_right = -15.2659
+margin_bottom = 50.12
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="MenuName"]
+margin_left = 3.68446
+margin_top = 17.5319
+margin_right = 67.6845
+margin_bottom = 81.5319
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "PYR"
+anims/PYR = SubResource( 1 )
+[connection signal="pressed" from="MenuName/TextureButton" to="MenuName/TextureButton" method="_on_TextureButton_pressed"]

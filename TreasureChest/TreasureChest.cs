@@ -31,7 +31,11 @@ public class TreasureChest : StaticBody2D
 
 	public void OpenChest()
 	{
+		if (sprite.Frame == 1) {
+			return;
+		}
 		ZIndex = 101;
+
 		sprite.Frame = 1; // open treasure chest
 		goldShine.Energy = goldBrightness;
 
