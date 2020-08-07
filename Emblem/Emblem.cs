@@ -13,6 +13,8 @@ public class Emblem : Sprite
     }
     public void _onGetEmblem(Node body)
     {
-        QueueFree();
+        if(body is Player) {
+            QueueFree();
+        }
     }
 }

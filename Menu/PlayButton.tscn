@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/TextureButton.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Sprites/MenuPlayPressed.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Sprites/MenuPlay.png" type="Texture" id=3]
+
+[node name="TextureButton" type="TextureButton"]
+margin_left = -47.2659
+margin_top = 34.12
+margin_right = -15.2659
+margin_bottom = 50.12
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_TextureButton_pressed"]

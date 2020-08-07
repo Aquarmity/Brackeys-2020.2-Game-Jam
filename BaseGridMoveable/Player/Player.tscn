@@ -33,6 +33,7 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 0.5
 playing = true
 centered = false

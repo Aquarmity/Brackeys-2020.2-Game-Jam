@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu/Sprites/MenuBackground.png" type="Texture" id=1]
-[ext_resource path="res://Menu/Sprites/MenuPlay.png" type="Texture" id=2]
+[ext_resource path="res://Menu/PlayButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/Sprites/MenuName.png" type="Texture" id=3]
-[ext_resource path="res://Menu/Sprites/MenuPlayPressed.png" type="Texture" id=4]
 [ext_resource path="res://Menu/Sprites/MenuSound1.png" type="Texture" id=5]
 [ext_resource path="res://Menu/Sprites/MenuSound2.png" type="Texture" id=6]
-[ext_resource path="res://Menu/TextureButton.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PYR"
@@ -43,18 +41,7 @@ centered = false
 position = Vector2( 160, 77.88 )
 texture = ExtResource( 3 )
 
-[node name="TextureButton" type="TextureButton" parent="MenuName"]
-margin_left = -47.2659
-margin_top = 34.12
-margin_right = -15.2659
-margin_bottom = 50.12
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureButton" parent="MenuName" instance=ExtResource( 2 )]
 
 [node name="TextureButton2" type="TextureButton" parent="MenuName"]
 margin_left = 16.3266
@@ -71,4 +58,3 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "PYR"
 anims/PYR = SubResource( 1 )
-[connection signal="pressed" from="MenuName/TextureButton" to="MenuName/TextureButton" method="_on_TextureButton_pressed"]

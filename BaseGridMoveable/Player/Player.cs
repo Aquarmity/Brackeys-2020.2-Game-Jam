@@ -3,7 +3,8 @@ using System;
 
 public class Player : BaseGridMoveable
 {
-	bool hasEmblem = false;
+	public bool hasEmblem = false;
+	public bool gameEnd = false;
 	[Signal]
 	public delegate void chestTest(Vector2 pos);
 
@@ -47,6 +48,9 @@ public class Player : BaseGridMoveable
 	{
 		base._Process(delta);
 		checkForRoomChange();
+		if (gameEnd) {
+			GD.Print("GAME OVER");
+		}
 	}
 	public override void _Input(InputEvent inputEvent)
 	{
@@ -158,6 +162,8 @@ public class Player : BaseGridMoveable
 
 	public void Die()
 	{
+		var globalvariables = (GlobalValues)GetNode("/root/GlobalValues");
+		globalvariables.score = GetNode<Label>("CanvasLayer/Sprite2/Label").Text;
 		GetNode<AnimatedSprite>("AnimatedSprite").Hide();
 	}
 
@@ -170,8 +176,10 @@ public class Player : BaseGridMoveable
 
 	public void _onGetEmblem(Node body) 
 	{
-		hasEmblem = true;
-		Sprite myEmblemInstance = (Sprite)myEmblem.Instance();
-		GetNode<CanvasLayer>("CanvasLayer").AddChild(myEmblemInstance);
+		if (body is Player) {
+			hasEmblem = true;
+			Sprite myEmblemInstance = (Sprite)myEmblem.Instance();
+			GetNode<CanvasLayer>("CanvasLayer").AddChild(myEmblemInstance);
+		}
 	}
 }
