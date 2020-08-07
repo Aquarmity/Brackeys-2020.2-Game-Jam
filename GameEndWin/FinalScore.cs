@@ -5,6 +5,6 @@ public class FinalScore : Label
 {
     public override void _Ready()
     {
-        Text = GetNode<GlobalValues>("root/GlobalValues").score;
+        Text = GetNode<GlobalValues>("/root/GlobalValues").score;
     }
 }

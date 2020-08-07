@@ -3,5 +3,5 @@ using System;
 
 public class GlobalValues : Node
 {
-    public string score = "0";
+    public string score;
 }

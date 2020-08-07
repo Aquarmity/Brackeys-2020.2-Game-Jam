@@ -25,12 +25,26 @@ public class Grid : Node2D
         {
             fileToRoomArr(file);
         }
-        GD.Print((roomArray[0,0]));
-        GD.Print((roomArray[0,1]));
+        ShuffleBoard();
         DisplayRoom(currentX,currentY);
         
     }
 
+    public void ShuffleBoard()
+    {
+        var rng = new RandomNumberGenerator();
+        rng.Randomize();
+        for(int i = 0; i < rng.RandiRange(50, 100); i++)
+        {
+            if(rng.RandiRange(1,2) == 1) {
+                ShiftRowRight(rng.RandiRange(1,4));
+                GD.Print("row shifted");
+            } else {
+                ShiftColumnDown(rng.RandiRange(1,4));
+                GD.Print("Column Shfited");
+            }
+        }
+    }
     public void SetUpMenuGrid()
     {
         for (int i = 0; i < arraySize; i++)

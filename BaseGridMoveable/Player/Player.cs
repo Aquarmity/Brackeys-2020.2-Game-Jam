@@ -12,6 +12,9 @@ public class Player : BaseGridMoveable
 
 	private PackedScene playerSlash = GD.Load<PackedScene>("res://BaseGridMoveable/Player/PlayerSlash.tscn");
 	
+
+	private PackedScene endSceneLose = GD.Load<PackedScene>("res://GameEndLose/GameEndLose.tscn");
+	private PackedScene endSceneWin = GD.Load<PackedScene>("res://GameEndWin/GameEndWin.tscn");
 	public AnimatedSprite currectSlash = null;
 	
 	public bool attacking = false;
@@ -50,6 +53,10 @@ public class Player : BaseGridMoveable
 		checkForRoomChange();
 		if (gameEnd) {
 			GD.Print("GAME OVER");
+			var globalvariables = (GlobalValues)GetNode("/root/GlobalValues");
+			globalvariables.score = GetNode<Label>("CanvasLayer/Sprite2/Label").Text;
+	
+			GetTree().ChangeSceneTo(endSceneWin);
 		}
 	}
 	public override void _Input(InputEvent inputEvent)
@@ -162,9 +169,8 @@ public class Player : BaseGridMoveable
 
 	public void Die()
 	{
-		var globalvariables = (GlobalValues)GetNode("/root/GlobalValues");
-		globalvariables.score = GetNode<Label>("CanvasLayer/Sprite2/Label").Text;
 		GetNode<AnimatedSprite>("AnimatedSprite").Hide();
+		GetTree().ChangeSceneTo(endSceneLose);
 	}
 
 	public void _onSlashEnd()
