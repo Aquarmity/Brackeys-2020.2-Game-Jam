@@ -85,14 +85,33 @@ public class Pyratrid : Monster
                     ((Player)result["collider"]).TakeLaserDamage(25);
                 }
             }
-            SpawnLaser(attackLoc * 16, isYDir );
+            float myLaserRot = 0;
+            if(isYDir) {
+                if (pos == 1) {
+                    myLaserRot = (float)Math.PI * 3 / 2;
+                } else {
+                    myLaserRot = (float)Math.PI / 2;
+                }
+            } else {
+                if (pos == 1) {
+                    myLaserRot = (float)Math.PI;
+                } else {
+                    myLaserRot = 0;
+                }
+            }
+            if (i == 0) {
+                SpawnLaser(attackLoc * 16, myLaserRot, 1 );
+            } else {
+                SpawnLaser(attackLoc * 16, myLaserRot, 0);
+            }
         }
     }
-    private void SpawnLaser(Vector2 spawnLaserPosition, bool rot)
+    private void SpawnLaser(Vector2 spawnLaserPosition, float rot, int frameValue)
     {
         var newLaser = (Area2D)laserScene.Instance();
         newLaser.Position = spawnLaserPosition;
         newLaser.Set("rot", rot);
+        newLaser.Set("laserFrame", frameValue);
         GetParent().AddChild(newLaser);
     }
 }

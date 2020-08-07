@@ -155,7 +155,7 @@ public class Player : BaseGridMoveable
 
 	public void Die()
 	{
-		QueueFree();
+		GetNode<AnimatedSprite>("AnimatedSprite").Hide();
 	}
 
 	public void _onSlashEnd()

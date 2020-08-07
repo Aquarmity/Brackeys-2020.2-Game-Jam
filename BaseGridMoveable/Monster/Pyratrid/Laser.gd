@@ -1,12 +1,11 @@
 extends Area2D
 
+var laserFrame = 0;
 
-var rot = false
+var rot = 0;
 func _ready():
-	if rot == false:
-		$Sprite.rotation = 0
-	elif rot == true:
-		$Sprite.rotation = PI/2
+	$AnimatedSprite.frame = laserFrame;
+	$AnimatedSprite.rotation = rot;
 
 func _on_LaserTimer_timeout():
 	queue_free()
