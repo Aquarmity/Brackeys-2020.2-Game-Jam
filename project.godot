@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Brackeys- 2020 . 2- Game- Jam"
 run/main_scene="res://Menu/Menu.tscn"
+config/icon="res://gameIcon.png"
 
 [autoload]
 

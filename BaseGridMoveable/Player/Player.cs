@@ -21,6 +21,7 @@ public class Player : BaseGridMoveable
 
 	public float maxHealth = 100;
 	private float health;
+	public Timer myInputTimer;
 	[Export]
 	public float Health
 	{
@@ -46,6 +47,8 @@ public class Player : BaseGridMoveable
 		Health = 100;
 		base._Ready();
 		myGrid = GetParent().GetNode<Grid>("Grid");
+		myInputTimer = GetNode<Timer>("InputTimer");
+		myInputTimer.Connect("timeout", this, nameof(_onInputTimeout));
 	}
 	public override void _Process(float delta)
 	{
@@ -86,8 +89,73 @@ public class Player : BaseGridMoveable
 		}
 		
 		PlayerMoveGrid(MoveGridRelativeBase(x,y));
+		if(myInputTimer.IsStopped()) {
+			myInputTimer.Start();
+		}
 		
+	}
+
+	int lastDirection = 0;
+
+	public void _onInputTimeout()
+	{
+		bool changeInput = false;
+		int x = 0;
+		int y = 0;
+		bool anyInput = false;
+		if (Input.IsActionPressed("mv_up"))
+		{
+			y = -1;
+			anyInput = true;
+			if (lastDirection != 1 && lastDirection != 0) {
+				changeInput = true;
+			}
+			lastDirection = 1;
+		}
+		if (Input.IsActionPressed("mv_down"))
+		{
+			y = 1;
+			anyInput = true;
+			if(lastDirection != 2 && lastDirection != 0) {
+				changeInput = true;
+			}
+			lastDirection = 2;
+		}
+		if (Input.IsActionPressed("mv_left"))
+		{
+			x = -1;
+			anyInput = true;
+			if (lastDirection != 3 && lastDirection != 0) {
+				changeInput = true;
+			}
+			lastDirection = 3;
+		}
+		if (Input.IsActionPressed("mv_right"))
+		{
+			x = 1;
+			anyInput = true;
+			if (lastDirection != 4 && lastDirection != 0) {
+				changeInput = true;
+			}
+			lastDirection = 4;
+		}
+		// only move one axis at a time (no diagonal movement)
+		if (x != 0)
+		{
+			y = 0;
+		}
 		
+		if (!changeInput) {
+			PlayerMoveGrid(MoveGridRelativeBase(x,y));
+		} else {
+			lastDirection = 0;
+		}
+		GD.Print(anyInput);
+		if(!anyInput)
+		{
+			lastDirection = 0;
+			myInputTimer.Stop();
+		}
 	}
 	private void checkForRoomChange()
 	{
