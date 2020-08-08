@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Room/Rooms/Room00.cs" type="Script" id=1]
 [ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Wall/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilemaps/SandTileMap/SandTileMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Staircase/Staircase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/slkscre.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://TreasureChest/TreasureChest.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 6 )
 
 [node name="Room00" type="Node2D"]
 script = ExtResource( 1 )
@@ -178,6 +183,63 @@ position = Vector2( 176, 160 )
 [node name="Wall54" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 176, 144 )
 
+[node name="Wall72" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 144 )
+
+[node name="Wall73" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 208, 144 )
+
+[node name="Wall80" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 288, 144 )
+
+[node name="Wall74" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 224, 144 )
+
+[node name="Wall75" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 240, 144 )
+
+[node name="Wall78" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 272, 144 )
+
+[node name="Wall79" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 272, 144 )
+
+[node name="Wall76" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 256, 144 )
+
+[node name="Wall77" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 256, 144 )
+
+[node name="Wall62" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 160, 144 )
+
+[node name="Wall63" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 144, 144 )
+
+[node name="Wall64" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 16, 144 )
+
+[node name="Wall65" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 32, 144 )
+
+[node name="Wall66" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 48, 144 )
+
+[node name="Wall67" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 64, 144 )
+
+[node name="Wall68" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 144 )
+
+[node name="Wall69" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 96, 144 )
+
+[node name="Wall70" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 112, 144 )
+
+[node name="Wall71" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 128, 144 )
+
 [node name="Wall55" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 176, 128 )
 
@@ -221,3 +283,17 @@ position = Vector2( 160, 57 )
 
 [node name="TreasureChest" parent="." instance=ExtResource( 7 )]
 position = Vector2( 272, 128 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 1 )
+text = "Press Space To Open the Grid Manipulator
+Find THe Totem!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

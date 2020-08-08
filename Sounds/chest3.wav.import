@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chest3.wav-b5a676ad8cde23dc226f2f0d71d8ae03.sample"
+
+[deps]
+
+source_file="res://Sounds/chest3.wav"
+dest_files=[ "res://.import/chest3.wav-b5a676ad8cde23dc226f2f0d71d8ae03.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

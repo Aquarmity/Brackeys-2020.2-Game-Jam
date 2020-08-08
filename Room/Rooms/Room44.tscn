@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Room/Rooms/Room44.cs" type="Script" id=1]
 [ext_resource path="res://Tilemaps/SandTileMap/SandTileMap.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Tilemaps/GrateTileMap/GrateTileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://BaseGridMoveable/Monster/Pyratrid/Pyratrid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Emblem/Emblem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fonts/slkscre.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 8 )
 
 [node name="Room44" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,6 +34,9 @@ position = Vector2( 0, 48 )
 position = Vector2( 0, 32 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 0, 16 )
+
+[node name="Wall55" parent="Walls" instance=ExtResource( 4 )]
 position = Vector2( 0, 16 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 4 )]
@@ -168,6 +176,66 @@ position = Vector2( 304, 0 )
 [node name="Wall35" parent="Walls" instance=ExtResource( 4 )]
 position = Vector2( 272, 0 )
 
+[node name="Wall56" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 144 )
+
+[node name="Wall57" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 32, 144 )
+
+[node name="Wall58" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 144 )
+
+[node name="Wall59" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 64, 144 )
+
+[node name="Wall60" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 80, 144 )
+
+[node name="Wall61" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 96, 144 )
+
+[node name="Wall62" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 96, 144 )
+
+[node name="Wall63" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 144 )
+
+[node name="Wall64" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 128, 144 )
+
+[node name="Wall65" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 144 )
+
+[node name="Wall66" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 160, 144 )
+
+[node name="Wall67" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 192, 144 )
+
+[node name="Wall68" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 144 )
+
+[node name="Wall69" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 144 )
+
+[node name="Wall70" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 224, 144 )
+
+[node name="Wall71" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 144 )
+
+[node name="Wall72" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 256, 144 )
+
+[node name="Wall73" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 256, 144 )
+
+[node name="Wall74" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 144 )
+
+[node name="Wall75" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 288, 144 )
+
 [node name="Wall36" parent="Walls" instance=ExtResource( 4 )]
 position = Vector2( 288, 0 )
 
@@ -192,6 +260,7 @@ margin_right = 320.0
 margin_bottom = 192.0
 color = Color( 0.611765, 0.156863, 0.156863, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -206,3 +275,17 @@ position = Vector2( 128, 96 )
 
 [node name="Emblem" parent="." instance=ExtResource( 7 )]
 position = Vector2( 144, 80 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 1 )
+text = "Grab the Totem and return to the 
+Staircase in the first room"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
