@@ -5,11 +5,12 @@ public class TreasureChest : StaticBody2D
 {
 	private PackedScene coin = GD.Load<PackedScene>("res://Coin/Coin.tscn");
 	float goldBrightness = 1.27f;
-
+	private AudioStreamPlayer soundManager;
 	AnimatedSprite sprite;
 	Light2D goldShine;
 	public override void _Ready()
 	{
+		soundManager = GetNode<AudioStreamPlayer>("/root/SoundManager");
 		sprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		goldShine = GetNode<Light2D>("Light2D");
 		var players = GetTree().GetNodesInGroup("Player");
@@ -45,5 +46,6 @@ public class TreasureChest : StaticBody2D
 			AddChild(coinInstance);
 
 		}
+		soundManager.Call("PlayAffect", "res://Sounds/chest3.wav");
 	}
 }

@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Room/RoomSymbol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UIGrid/ArrowButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UIGrid/UIGrid.cs" type="Script" id=3]
+[ext_resource path="res://Fonts/slkscre.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://UIGrid/Label.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 4 )
 
 [node name="UIGrid" type="Node2D"]
 script = ExtResource( 3 )
@@ -343,3 +349,30 @@ rotated = true
 [node name="PlayerBlinker" parent="." instance=ExtResource( 1 )]
 z_index = 1
 frame = 17
+
+[node name="Label" type="Label" parent="."]
+margin_top = 144.0
+margin_right = 320.0
+margin_bottom = 177.0
+custom_fonts/font = SubResource( 1 )
+text = "Click on the Arrows to Shift the Rooms
+You can't Enter Rooms if they are Blocked 
+from that direction."
+align = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 16.0
+margin_right = 320.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "NoTe: The Player Wraps
+ on the X axis but not the y"
+align = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
