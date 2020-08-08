@@ -11,6 +11,7 @@ public class game : Node2D
     public override void _Ready()
     {
         GetNode<Grid>("Grid").SetUpMenuGrid();
+        GetNode<AudioStreamPlayer>("/root/SoundManager").Call("PlaySong", "game");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
