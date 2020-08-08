@@ -234,13 +234,13 @@ public class Grid : Node2D
             didMove = false;
         }
 
-        if (x - currentX == 1) {
+        if (x - currentX == 1 || x - currentX == -4) {
             if (roomArray[x,y].left == false)
             {
                 return false;
             }
         }
-        if (x - currentX == -1) {
+        if (x - currentX == -1 || x - currentX == 4) {
             if (roomArray[x,y].right == false)
             {
                 return false;
