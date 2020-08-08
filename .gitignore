@@ -10,3 +10,8 @@ data_*/
 
 # C sharp
 *.sln
+
+
+
+*.pck
+Exports/*
