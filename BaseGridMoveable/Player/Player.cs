@@ -17,8 +17,10 @@ public class Player : BaseGridMoveable
 	private PackedScene endSceneWin = GD.Load<PackedScene>("res://GameEndWin/GameEndWin.tscn");
 	public AnimatedSprite currectSlash = null;
 	
+	private PackedScene fadetoblack = null;
 	public bool attacking = false;
 
+	private AudioStreamPlayer soundManager;
 	public float maxHealth = 100;
 	private float health;
 	public Timer myInputTimer;
@@ -32,23 +34,27 @@ public class Player : BaseGridMoveable
 		set
 		{
 			health = value;
-			if (health < 0)
+			if (health <= 0)
 			{
 				health = 0;
 				Die();
 			}
 			ColorRect fill = GetNode<ColorRect>("CanvasLayer/Sprite/ColorRect");
 			fill.RectScale = new Vector2(health/maxHealth, 1);
+			soundManager.Call("PlayAffect", "res://Sounds/HurtMaybe.wav");
+			
 		}
 	}
 	Grid myGrid;
 	public override void _Ready()
 	{
+		soundManager = GetNode<AudioStreamPlayer>("/root/SoundManager");
 		Health = 100;
 		base._Ready();
 		myGrid = GetParent().GetNode<Grid>("Grid");
 		myInputTimer = GetNode<Timer>("InputTimer");
 		myInputTimer.Connect("timeout", this, nameof(_onInputTimeout));
+		fadetoblack = GD.Load<PackedScene>("res://FadeToBlack.tscn");
 	}
 	public override void _Process(float delta)
 	{
@@ -88,7 +94,10 @@ public class Player : BaseGridMoveable
 			y = 0;
 		}
 		
-		PlayerMoveGrid(MoveGridRelativeBase(x,y));
+		if (PlayerMoveGrid(MoveGridRelativeBase(x,y)))
+		{
+			soundManager.Call("PlayAffect", "res://Sounds/mvmt5.wav");
+		}
 		if(myInputTimer.IsStopped()) {
 			myInputTimer.Start();
 		}
@@ -103,7 +112,7 @@ public class Player : BaseGridMoveable
 		int x = 0;
 		int y = 0;
 		bool anyInput = false;
-		if (Input.IsActionPressed("mv_up"))
+		if (Input.IsActionPressed("mv_up") && !Input.IsActionJustPressed("mv_up"))
 		{
 			y = -1;
 			anyInput = true;
@@ -112,7 +121,7 @@ public class Player : BaseGridMoveable
 			}
 			lastDirection = 1;
 		}
-		if (Input.IsActionPressed("mv_down"))
+		if (Input.IsActionPressed("mv_down") && !Input.IsActionJustPressed("mv_down"))
 		{
 			y = 1;
 			anyInput = true;
@@ -121,7 +130,7 @@ public class Player : BaseGridMoveable
 			}
 			lastDirection = 2;
 		}
-		if (Input.IsActionPressed("mv_left"))
+		if (Input.IsActionPressed("mv_left") && !Input.IsActionJustPressed("mv_left"))
 		{
 			x = -1;
 			anyInput = true;
@@ -130,7 +139,7 @@ public class Player : BaseGridMoveable
 			}
 			lastDirection = 3;
 		}
-		if (Input.IsActionPressed("mv_right"))
+		if (Input.IsActionPressed("mv_right") && !Input.IsActionJustPressed("mv_right"))
 		{
 			x = 1;
 			anyInput = true;
@@ -146,7 +155,11 @@ public class Player : BaseGridMoveable
 		}
 		
 		if (!changeInput) {
-			PlayerMoveGrid(MoveGridRelativeBase(x,y));
+
+			if (PlayerMoveGrid(MoveGridRelativeBase(x,y)))
+			{
+				soundManager.Call("PlayAffect", "res://Sounds/mvmt5.wav");
+			}
 		} else {
 			lastDirection = 0;
 		}
@@ -208,8 +221,10 @@ public class Player : BaseGridMoveable
 		gridPosition.y = Position.y / 16;
 	}
 
+	
 	private bool PlayerMoveGrid(Godot.Collections.Dictionary result)
 	{
+		
 		if (result.Count != 0)  // if there is something there
 		{
 			EmitSignal(nameof(chestTest), result["position"]); // tell the chests to check if it was them that we hit
@@ -224,11 +239,13 @@ public class Player : BaseGridMoveable
 				currectSlash.Frame = 0;
 				currectSlash.Position = ((Monster)result["collider"]).Position;
 				currectSlash.Connect("animation_finished", this, nameof(_onSlashEnd));
+				soundManager.Call("PlayAffect", "res://Sounds/slash.wav");
 			}
 			return false;
 		}
 		
 		return true;
+		
 	}
 	public void TakeLaserDamage(float damage)
 	{
@@ -238,9 +255,15 @@ public class Player : BaseGridMoveable
 	public void Die()
 	{
 		GetNode<AnimatedSprite>("AnimatedSprite").Hide();
+		var fadetoblackinstance = (ColorRect)fadetoblack.Instance();
+		fadetoblackinstance.GetNode<AnimationPlayer>("AnimationPlayer").Connect("animation_finished", this, "_onFadeOut");
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(fadetoblackinstance);
+		
+	}
+	public void _onFadeOut(string animName)
+	{
 		GetTree().ChangeSceneTo(endSceneLose);
 	}
-
 	public void _onSlashEnd()
 	{
 		currectSlash.QueueFree();

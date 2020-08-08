@@ -3,7 +3,7 @@ using System;
 
 public class Pyratrid : Monster
 {
-
+    private AudioStreamPlayer soundManager;
     private Timer MoveTimer;
     private RandomNumberGenerator rng = new RandomNumberGenerator();
 
@@ -15,6 +15,7 @@ public class Pyratrid : Monster
         MoveTimer = GetNode<Timer>("MoveTimer");
         MoveTimer.Connect("timeout", this, nameof(_on_Move_Timeout));
         base._Ready();
+        soundManager = GetNode<AudioStreamPlayer>("/root/SoundManager");
     }
 
     public void _on_Move_Timeout()
@@ -44,6 +45,7 @@ public class Pyratrid : Monster
     }
     public void LaserAttack(int dir)
     {
+        soundManager.Call("PlayAffect", "res://Sounds/mvmt3.wav");
         switch(dir)
         {
             case 1:
